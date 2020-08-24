@@ -1,5 +1,5 @@
-__pycache__
 .vscode
-/resources/data/**
-/resources/processed/data/**
-/web/static/**
+./server/__pycache__
+./server/resources/data/**
+./server/resources/processed/data/**
+./server/resourcesweb/static/**

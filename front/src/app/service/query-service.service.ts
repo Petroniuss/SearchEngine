@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from './../../environments/environment';
 
 export interface QueryResponse {
   link: String;
@@ -12,7 +13,7 @@ export interface QueryResponse {
   providedIn: 'root',
 })
 export class QueryService {
-  serverURL = 'http://localhost:5000/';
+  serverURL = environment.apiUrl;
   queryURL = this.serverURL + 'query';
   svdURL = this.serverURL + 'svd';
 
@@ -36,6 +37,8 @@ export class QueryService {
   recalcSvd(k: number) {
     let params = new HttpParams().set('k', k.toString());
 
-    return this.http.get<string>(this.svdURL, { params: params });
+    return this.http.get<string>(this.svdURL, {
+      params: params,
+    });
   }
 }

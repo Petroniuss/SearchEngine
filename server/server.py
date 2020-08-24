@@ -1,14 +1,17 @@
 from flask import Flask, request
+from flask_cors import CORS, cross_origin
 from SearchEngine import SearchEngine
 from QueryResponse import QueryResponse, from_query_result
+import os
 
 # --------------------------------|
 # In order to execute run:        |
 #     `python server.py`          |
 # --------------------------------|
 
-app = Flask(__name__, static_url_path="", static_folder="web/static")
 engine = SearchEngine()
+app = Flask(__name__, static_url_path="", static_folder="resources/web/static")
+CORS(app)
 
 
 @app.route("/")
@@ -47,4 +50,6 @@ def recalculateSVD():
 
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    port = int(os.environ.get("PORT", 8080))
+    host = "0.0.0.0"
+    app.run(debug=True, port=port, host=host)

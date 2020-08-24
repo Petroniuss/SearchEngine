@@ -5,21 +5,26 @@ RUN mkdir -p /app/front
 
 WORKDIR /app/front
 
-COPY ./front .
+COPY ./front/package.json .
+RUN npm install -g @angular/cli && npm install 
 
-RUN npm install && ng build --prod
+COPY ./front .
+RUN ng build --prod
 
 # Second Stage - Getting all neccessary dependencies to run flask app
 FROM python:3
 
-WORKDIR /app
+WORKDIR /app/server
+
+COPY ./server/requirements.txt .
+RUN pip install -r requirements.txt
+
+COPY ./setup .
+RUN python download-nltk.py
 
 COPY ./server .
-COPY --from=build-client-stage /app/server/resources/web/static /app/server/resources/web/static
+COPY --from=build-client-stage /app/server/resources/web/static .
 
-RUN pip install --no-cache-dir -r requirements.txt
-RUN python ./setup/download-nltk.py
+EXPOSE ${PORT}
 
-EXPOSE 8080
-
-CMD ["python", "./server.py"]
+CMD ["python", "server.py"]
