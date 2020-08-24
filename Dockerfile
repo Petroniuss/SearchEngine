@@ -19,8 +19,7 @@ WORKDIR /app/server
 COPY ./server/requirements.txt .
 RUN pip install -r requirements.txt
 
-COPY ./setup .
-RUN python download-nltk.py
+RUN python -m nltk.downloader stopwords words
 
 COPY ./server .
 COPY --from=build-client-stage /app/server/resources/web/static .
