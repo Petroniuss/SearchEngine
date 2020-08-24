@@ -19,7 +19,8 @@ WORKDIR /app/server
 COPY ./server/requirements.txt .
 RUN pip install -r requirements.txt
 
-RUN python -m nltk.downloader stopwords words
+RUN python -m nltk.downloader -d /usr/share/nltk_data stopwords words
+ENV NLTK_DATA=/usr/share/nltk_data
 
 COPY ./server .
 COPY --from=build-client-stage /app/server/resources/web/static .
