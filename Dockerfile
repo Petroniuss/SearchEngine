@@ -9,7 +9,10 @@ COPY ./front/package.json .
 RUN npm install -g @angular/cli && npm install 
 
 COPY ./front .
-RUN ng build --prod
+ARG MODE="production"
+
+RUN echo ${MODE}
+RUN ng build `if [ "$MODE" == "production" ]; then echo "--prod"; fi ` 
 
 # Second Stage - Getting all neccessary dependencies to run flask app
 FROM python:3
