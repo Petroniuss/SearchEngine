@@ -1,0 +1,6 @@
+.git
+.__pycache__
+.vscode
+
+./front/node_modules
+./front/e2e
