@@ -23,7 +23,7 @@ RUN python -m nltk.downloader -d /usr/share/nltk_data stopwords words
 ENV NLTK_DATA=/usr/share/nltk_data
 
 COPY ./server .
-COPY --from=build-client-stage /app/server/resources/web/static .
+COPY --from=build-client-stage /app/server/resources/web/static ./resources/web/static
 
 EXPOSE ${PORT:-5000}
 

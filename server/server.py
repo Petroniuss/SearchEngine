@@ -11,6 +11,8 @@ import os
 
 engine = SearchEngine()
 app = Flask(__name__, static_url_path="", static_folder="resources/web/static")
+app.config["CORS_HEADERS"] = "Content-Type"
+
 CORS(app)
 
 

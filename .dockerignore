@@ -4,3 +4,5 @@
 
 ./front/node_modules
 ./front/e2e
+
+./server/resources/web/static
