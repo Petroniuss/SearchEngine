@@ -2,4 +2,4 @@
 ./server/__pycache__
 ./server/resources/data/**
 ./server/resources/processed/data/**
-./server/resourcesweb/static/**
+./server/resources/web/static/**
