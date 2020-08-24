@@ -25,6 +25,6 @@ RUN python download-nltk.py
 COPY ./server .
 COPY --from=build-client-stage /app/server/resources/web/static .
 
-EXPOSE ${PORT}
+EXPOSE ${PORT:-5000}
 
 CMD ["python", "server.py"]
