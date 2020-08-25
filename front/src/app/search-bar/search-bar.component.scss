@@ -192,6 +192,12 @@
   border-bottom-right-radius: 12px;
   box-shadow: 0 0 0px 0 crimson, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
 
+  @media screen and (max-width: 484px) {
+    & {
+      display: none;
+    }
+  }
+
   .checkbox-container {
     position: relative;
     display: block;
