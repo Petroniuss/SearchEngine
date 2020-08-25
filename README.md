@@ -33,4 +33,4 @@ You may also notice that there are scripts for scraping the wikipedia and prepro
 
 ## Here's how it looks
 
-[!foo](./screenshot.png)
+![foo](./screenshot.png)
