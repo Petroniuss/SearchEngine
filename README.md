@@ -30,3 +30,7 @@ You may also notice that there are scripts for scraping the wikipedia and prepro
 - parsing html documents
 - stemming (using Porter Stemming Algorithm)
 - creating bag of words etc..
+
+## Here's how it looks
+
+[!alt text](screenshot)
