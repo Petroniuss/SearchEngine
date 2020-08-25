@@ -1,6 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
-@import url("https://fonts.googleapis.com/css?family=Inconsolata:700");
-@import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2&family=Girassol&display=swap");
+@font-face {
+  font-family: "Baloo Paaji 2";
+  src: url(assets/fonts/Baloo_Paaji_2/BalooPaaji2-Regular.ttf)
+    format("truetype");
+}
+
+@font-face {
+  font-family: "Girassol";
+  src: url(assets/fonts/Girassol/Girassol-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Inconsolata";
+  src: url(assets/fonts/Inconsolata/Inconsolata-Medium.ttf) format("truetype");
+}
 
 * {
   margin: 0;
