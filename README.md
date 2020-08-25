@@ -27,5 +27,6 @@ Front is an angular client while backend is small flask app.
 
 You may also notice that there are scripts for scraping the wikipedia and preprocessing these documents:
 
+- parsing html documents
 - stemming (using Porter Stemming Algorithm)
 - creating bag of words etc..
