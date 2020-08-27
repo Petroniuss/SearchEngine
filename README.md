@@ -2,7 +2,7 @@
 
 This repository contains modest implementation of web search engine.
 
-In a nutshell I have indexed over 10k wikipedia articles, serialized them to sparse matrix, calculated Singular Value Decomposition out of it and performed low-rank approximation which yields better resuts as now we also find documents which contain words which are semantically close (synonyms) to our query.
+In a nutshell I have indexed over 10k wikipedia articles, serialized them to sparse matrix (each column is a document, each row refers to particular stem of word in a bag of words constructed from all documents), used IDF to decrease importance of common words and performed low-rank approximation using Singular Value Decomposition which yields better resuts in comparison to using complete matrixas now we also find documents which contain words which are semantically close (synonyms) to our query and reduce the noise.
 
 Making request means vectorizing the query (q) using previously construced bag of words (which contains around 44k words) and calculating cosine of an angle between q and each document d_j (each column in our sparse matrix). This can be optimized using matrix multiplication and in the end I return k documents having smallest angle between q (or equivalently highest cosine value).
 
